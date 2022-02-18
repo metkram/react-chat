@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addMessageAction } from "../store/messagesReducer";
+import "../index.css";
+import button from "../images/send.svg";
 
 export function Message() {
 
@@ -14,7 +16,7 @@ export function Message() {
   function sendMessage() {
     const messageObject = {
       message: message,
-      id: new Date(),
+      id: Date.now(),
     };
     setMessage("");
     return dispatch(addMessageAction(messageObject));
@@ -23,9 +25,9 @@ export function Message() {
   return (
     <>
       <form>
-        <input type="text" value={message} onChange={changeMessage} />
-        <input type="button" value="send" onClick={sendMessage} disabled={!message} />
+        <input type="text" value={message} onChange={changeMessage} className="message-form" />
       </form>
+      <img src={button} onClick={sendMessage} className="send-button" />
     </>
   );
 }
