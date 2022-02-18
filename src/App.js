@@ -1,7 +1,11 @@
+import { Chat } from "./Components/Chat";
+import { Message } from "./Components/Message";
+
 function App() {
   return (
     <>
-      Hello world. I'll code here a react chat as testing task
+      <Chat />
+      <Message />
     </>
   );
 }
